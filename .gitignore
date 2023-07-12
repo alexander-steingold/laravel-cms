@@ -17,3 +17,6 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/public/frontend/assets/img/banner
+/public/backend/assets/images/users
+

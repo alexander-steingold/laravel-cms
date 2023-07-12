@@ -2,11 +2,11 @@
     <form method="post" action="{{ route('profile.upload') }}" enctype="multipart/form-data">
         @csrf
         <div>
-            <x-admin.input-label for="avatar" :value="__('Profile Avatar')"/>
-            <img class="rounded-circle avatar-md" src="{{asset('backend/assets/images/users/'.$user->avatar)}}">
-            <x-admin.text-input id="avatar" name="avatar" type="file" class="mt-1 d-block"
-                                autofocus autocomplete="avatar"/>
-            <x-admin.input-error class="mt-2" :messages="$errors->get('avatar')"/>
+            <x-admin.input-label for="image" :value="__('Profile Avatar')"/>
+            <img class="rounded-circle avatar-md" src="{{asset(env('USER_AVATAR_PATH').$user->avatar)}}">
+            <x-admin.text-input id="image" name="image" type="file" class="mt-1 d-block"
+                                autofocus autocomplete="image"/>
+            <x-admin.input-error class="mt-2" :messages="$errors->get('image')"/>
         </div>
 
         <div class="d-flex justify-content-start mt-3 align-items-center">
