@@ -87,8 +87,8 @@
                         <span>Homepage</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('home_intro.edit')}}">Intro Section</a></li>
-                       
+                        <li><a href="{{route('home_intro.edit')}}">Banner Section</a></li>
+                        <li><a href="{{route('home_about.edit')}}">About Section</a></li>
                     </ul>
                 </li>
 

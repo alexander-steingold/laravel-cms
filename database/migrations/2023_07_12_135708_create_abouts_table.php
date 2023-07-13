@@ -10,12 +10,12 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('info_sections', function (Blueprint $table) {
+        Schema::create('abouts', function (Blueprint $table) {
             $table->id();
-            $table->string('page')->nullable()->default('home');
             $table->string('title')->nullable()->default('Default title text');
-            $table->string('subtitle')->nullable()->default('Default subtitle text');
-            $table->string('description')->nullable()->default('Default description text');
+            $table->string('subtitle')->nullable()->default('Default subtitle');
+            $table->string('summary')->nullable()->default('Default summary text');
+            $table->string('description', 500)->nullable()->default('Default description text');
             $table->string('image')->nullable();
             $table->string('video')->nullable();
             $table->timestamps();
@@ -27,6 +27,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('info_sections');
+        Schema::dropIfExists('abouts');
     }
 };

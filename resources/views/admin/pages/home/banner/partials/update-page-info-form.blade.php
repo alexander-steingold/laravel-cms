@@ -13,9 +13,12 @@
 
         <div class="mt-3">
             <x-admin.input-label for="description" :value="__('Description')"/>
-            <x-admin.text-input id="description" name="description" type="text" class="mt-1 d-block"
-                                :value="old('description', $data->description)"
-                                autofocus autocomplete="description"/>
+            {{--            <x-admin.text-area id="description" name="description" class="mt-1 d-block"--}}
+            {{--                               :value="old('description', $data->description)"--}}
+            {{--            ></x-admin.text-area>--}}
+
+            <textarea id="elm1" name="description">{{old('description', $data->description)}}</textarea>
+
             <x-admin.input-error class="mt-2" :messages="$errors->get('description')"/>
         </div>
 
@@ -29,8 +32,10 @@
         </div>
 
         <div class="mt-3">
-            <x-admin.input-label for="image" :value="__('Banner Image')"/>
-            <img class="img-thumbnail" src="{{asset(env('HOMEPAGE_INTRO_BANNER_PATH').$data->image)}}">
+            <x-admin.input-label for="image" :value="__('Image')"/>
+            @if($data->image)
+                <img class="img-thumbnail" src="{{asset(env('HOMEPAGE_INTRO_BANNER_PATH').$data->image)}}">
+            @endif
             <x-admin.text-input id="image" name="image" type="file" class="mt-1 d-block"
                                 autofocus autocomplete="image"/>
             <x-admin.input-error class="mt-2" :messages="$errors->get('image')"/>

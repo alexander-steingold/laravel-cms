@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Http\Controllers\Admin\Pages\Home;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ImageUpdateRequest;
-use App\Http\Requests\Admin\Pages\Home\Banner\BannerUpdateRequest;
-use App\Models\Admin\Pages\Home\HomeBanner;
+use App\Http\Requests\Admin\InfoSectionUpdateRequest;
+use App\Models\Admin\InfoSection;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,23 +16,23 @@ use Illuminate\View\View;
 use Image;
 
 
-class HomeIntroController extends Controller
+class InfoSectionController extends Controller
 {
     /**
      * Display edit form.
      */
     public function edit(Request $request): View
     {
-        $data = HomeBanner::firstOrFail();
+        $data = InfoSection::firstOrFail();
         return view('admin.pages/home.banner.edit', compact('data'));
     }
 
     /**
      * Update the user's profile information.
      */
-    public function update(BannerUpdateRequest $request): RedirectResponse
+    public function update(InfoSectionUpdateRequest $request): RedirectResponse
     {
-        $data = HomeBanner::firstOrFail();
+        $data = InfoSection::firstOrFail();
         try {
             $data->fill($request->validated());
             $image = $request->file('image');
@@ -75,7 +75,7 @@ class HomeIntroController extends Controller
     public function upload(ImageUpdateRequest $request): RedirectResponse
     {
         $request->validated();
-        $data = HomeBanner::firstOrFail();
+        $data = InfoSection::firstOrFail();
         $image = $request->file('image');
         if ($image) {
             try {

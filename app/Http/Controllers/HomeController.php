@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin\Pages\Home\HomeBanner;
+use App\Models\Admin\InfoSection;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $data['homeBanner'] = HomeBanner::firstOrFail();
+        $data['homeBanner'] = InfoSection::firstOrFail();
         return view('frontend.pages.home.home', compact('data'));
     }
 }
